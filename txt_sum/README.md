@@ -1,6 +1,8 @@
 # Text Summariser
 
 Link to the Text Summariser can be found [here](https://colab.research.google.com/drive/1oSCNngYRFW5tdEDTO2-qVIAYmZensSTe?usp=sharing)
+
+
 The Text Summariser shortens a block of text input by retrieving the most significant and important sentences in a text chunk. The project was created with the aid of the python SpaCy library.
 
 ## Introduction
