@@ -66,3 +66,14 @@ from heapq import nlargest
 summary = nlargest(select_length, enumerate(sentence_scores.items()), key=lambda x: x[1][1])
 summary = sorted(summary, key=lambda x: x[0])
 ```
+
+## Discussion
+
+In our first few trials of the text summariser bot, the bot was able to reduce the text length from 417 -> 115 words, 591 -> 286 words and 326 -> 121 words. By comparing the final summarised text with the original text imput, the final summarised text does contain the key ideas and information from the original text input.
+
+The most important factor in our project would probably be the robustness of the SpaCy and heapq libraries in providing us with many convenient functions (such as stop word removal) that reduced the complexity of our code drastically, and aiding us in executing the key steps in a concise and efficient manner. 
+
+## Future Work
+Before determining the frequency/significance of each word, we could also look to possibly process the text in an additional step also known as lemmatisation. Lemmatisation converts words back to their root tenses (eg. went -> go) to prevent duplication of words with multiple forms.
+
+Instead of using extractive text summarization which just uses analysis of frequency on tokens, we could branch out to abstractive text summarization which uses deep learning instead, and might be able to shorten text even further by replacing words and paraphrasing sentences.
