@@ -1,7 +1,9 @@
 import spacy
 from spacy.lang.en.stop_words import STOP_WORDS
 from string import punctuation
+import gradio as gr
 from heapq import nlargest
+import time
 
 
 def summarize(text):
@@ -41,8 +43,21 @@ def summarize(text):
 
     select_length = int(len(sentence_tokens) * 0.3)
 
-    summary = nlargest(select_length, sentence_scores, key=sentence_scores.get)
+    summary = nlargest(select_length, enumerate(
+        sentence_scores.items()), key=lambda x: x[1][1])
 
-    final_summary = ' '.join([str.strip(word.text) for word in summary])
+    # summary = nlargest(select_length, enumerate(sentence_scores), key=lambda x: x[1])
+
+    summary = sorted(summary, key=lambda x: x[0])
+
+    # final_summary = '\n\n'.join([str.strip(word.text) for word in summary])
+
+    final_summary = '\n\n'.join(
+        [str.strip(word[1][0].text) for word in summary])
 
     return final_summary
+
+
+gr.Interface(fn=summarize,
+             inputs='textbox',
+             outputs='textbox').launch()
