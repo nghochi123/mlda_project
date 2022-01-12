@@ -69,6 +69,10 @@ summary = nlargest(select_length, enumerate(sentence_scores.items()), key=lambda
 summary = sorted(summary, key=lambda x: x[0])
 ```
 
+### Step 6: Gradio app creation
+In making our text summariser bot easy and convenient for usage, we incorporated our bot with a GUI using the gradio library. The gradio app enables users to key in their desired input text via an input textbox, increasing the convenience and utility of our bot. 
+
+
 ## Discussion
 
 In our first few trials of the text summariser bot, the bot was able to reduce the text length from 417 -> 115 words, 591 -> 286 words and 326 -> 121 words. By comparing the final summarised text with the original text imput, the final summarised text does contain the key ideas and information from the original text input.
